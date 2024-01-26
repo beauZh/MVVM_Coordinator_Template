@@ -15,7 +15,7 @@ class MovieListViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     
-    var viewModel: MovieListViewModelProtocol!
+    var viewModel: MovieListViewModel!
     
     private let input:  PassthroughSubject<MovieListViewModel.Input, Never> = .init()
     private var subscriptions = Set<AnyCancellable>()
@@ -119,7 +119,7 @@ class MovieListViewController: UIViewController {
         
         let movieListFooterRegistration = UICollectionView.SupplementaryRegistration<UICollectionViewCell>(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self] footer, elementKind, indexPath in
             footer.contentConfiguration = UIHostingConfiguration(content: {
-                MovieListFooterView(viewModel: self.viewModel as! MovieListViewModel)
+                MovieListFooterView(viewModel: self.viewModel)
             })
         }
         

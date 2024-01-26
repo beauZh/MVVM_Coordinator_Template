@@ -8,21 +8,21 @@
 import Foundation
 import Combine
 
-protocol MovieListViewModelProtocol: AnyObject {
-    
-    var networkService: Networkable { get }
-    
-    var movies: [Movie] { get set }
-    var currentPage: Int { get set }
-    var totalPages: Int? { get set }
-    
-    func bindToViewModel(input: AnyPublisher<MovieListViewModel.Input, Never>)
-    func bindToViewController() -> AnyPublisher<MovieListViewModel.Output, Never>
-    
-    func handleGetMovieResponse(page: Int)
-}
+//protocol MovieListViewModelProtocol: AnyObject {
+//    
+//    var networkService: Networkable { get }
+//    
+//    var movies: [Movie] { get set }
+//    var currentPage: Int { get set }
+//    var totalPages: Int? { get set }
+//    
+//    func bindToViewModel(input: AnyPublisher<MovieListViewModel.Input, Never>)
+//    func bindToViewController() -> AnyPublisher<MovieListViewModel.Output, Never>
+//    
+//    func handleGetMovieResponse(page: Int)
+//}
 
-class MovieListViewModel: MovieListViewModelProtocol, ObservableObject {
+class MovieListViewModel: ObservableObject {
     
     enum Input {
         case viewDidAppear
@@ -71,7 +71,6 @@ class MovieListViewModel: MovieListViewModelProtocol, ObservableObject {
             do {
                 output.send(.loadingData(isLoading: true))
                 let movieResponse = try await networkService.movie.getNowPlaying(page: page)
-                
                 
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
