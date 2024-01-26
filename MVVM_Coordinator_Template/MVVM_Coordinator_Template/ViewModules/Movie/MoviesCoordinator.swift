@@ -67,11 +67,8 @@ class MoviesCoordinator: NavigationCoordinator {
 private extension MoviesCoordinator {
     
     func setupInitialContent() {
-        rootViewController.viewControllers = [
-            prepareMovieListScreen()
-        ]
+        rootViewController.viewControllers = [ prepareMovieListScreen() ]
         viewControllers = rootViewController.viewControllers
-        
         rootViewController.navigationBar.prefersLargeTitles = true
     }
     
