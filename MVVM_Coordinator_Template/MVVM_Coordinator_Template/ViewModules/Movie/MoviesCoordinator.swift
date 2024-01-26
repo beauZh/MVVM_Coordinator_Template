@@ -13,14 +13,11 @@ enum MovieScreen {
     case movieDetail(movieId: Int)
 }
 
-
 class MoviesCoordinator: NavigationCoordinator {
     
     let networkService: Networkable
     
-    
     required init(networkService: Networkable) {
-        
         self.networkService = networkService
         
         let navigationController = UINavigationController()
@@ -76,7 +73,6 @@ private extension MoviesCoordinator {
         viewControllers = rootViewController.viewControllers
         
         rootViewController.navigationBar.prefersLargeTitles = true
-        
     }
     
     func prepareMovieListScreen() -> MovieListViewController {
@@ -86,8 +82,6 @@ private extension MoviesCoordinator {
     }
     
     func prepareMovieDetailScreen(movieId: Int) -> UIHostingController<MovieDetaiView> {
-        
-        
         let hostingVCRefer = HostingVCRefer()
         let movieDetailView = MovieDetaiView(viewModel: MovieDetailViewModel(networkService: networkService, movieId: movieId), hostingVCRefer: hostingVCRefer)
         let vc = UIHostingController(rootView: movieDetailView)

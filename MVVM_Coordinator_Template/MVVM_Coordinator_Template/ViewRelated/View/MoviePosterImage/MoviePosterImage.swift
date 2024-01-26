@@ -31,7 +31,6 @@ struct MoviePosterImage: View {
     }
 }
 
-
 #Preview {
     MoviePosterImage(viewModel: MoviePosterImageViewModel(networkService: NetworkService(), imagePath: "/pHUCVSUCma3LHmb0WUBei1QGUtD.jpg", imageSize: .medium))
 }

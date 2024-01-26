@@ -15,14 +15,11 @@ enum MovieTableScreen {
     case movieDetail(movieId: Int)
 }
 
-
 class MovieTableCoordinator: NavigationCoordinator {
     
     let networkService: Networkable
     
-    
     required init(networkService: Networkable) {
-        
         self.networkService = networkService
         
         let navigationController = UINavigationController()

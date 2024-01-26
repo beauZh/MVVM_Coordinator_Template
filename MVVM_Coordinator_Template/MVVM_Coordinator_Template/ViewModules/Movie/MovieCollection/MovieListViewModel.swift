@@ -24,7 +24,6 @@ protocol MovieListViewModelProtocol: AnyObject {
 
 class MovieListViewModel: MovieListViewModelProtocol, ObservableObject {
     
-    //These Input and Output API is mainly used for UIViewController.
     enum Input {
         case viewDidAppear
         case infoButtonDidTap
@@ -36,7 +35,6 @@ class MovieListViewModel: MovieListViewModelProtocol, ObservableObject {
         case loadingData(isLoading: Bool)
         case handleError(error: MTError)
     }
-    
     
     private let output: PassthroughSubject<Output, Never> = .init()
     private var subscriptions = Set<AnyCancellable>()
@@ -51,9 +49,7 @@ class MovieListViewModel: MovieListViewModelProtocol, ObservableObject {
         self.networkService = networkService
     }
     
-    
     func bindToViewModel(input: AnyPublisher<Input, Never>) {
-        
         input.sink { [weak self] event in
             switch event {
             case .viewDidAppear:
@@ -74,8 +70,8 @@ class MovieListViewModel: MovieListViewModelProtocol, ObservableObject {
         Task {
             do {
                 output.send(.loadingData(isLoading: true))
-//                let movieResponse = try await networkService.movie.getNowPlaying(page: page)
-                let movieResponse: MovieListResponse = try await networkService.request(endpoint: MovieListEndPoint.nowPlaying(page: page))
+                let movieResponse = try await networkService.movie.getNowPlaying(page: page)
+                
                 
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }

@@ -18,7 +18,6 @@ struct MovieCellView: View {
     let networkService: Networkable
     let movie: Movie
     
-    
     var body: some View {
         HStack(spacing: 8) {
             MoviePosterImage(viewModel: MoviePosterImageViewModel(networkService: networkService, imagePath: movie.posterPath ?? "", imageSize: .medium))

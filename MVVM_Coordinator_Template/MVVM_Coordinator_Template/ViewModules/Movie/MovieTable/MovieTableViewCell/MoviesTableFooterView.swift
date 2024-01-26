@@ -13,14 +13,10 @@ struct MoviesTableFooterView: View {
     var totalPage: Int
     
     var body: some View {
-     
         Text("current page: \(currentPage) , total pages: \(totalPage)")
             .font(.system(.footnote, weight: .semibold))
             .foregroundColor(Color(.darkGray))
             .frame(maxWidth: .infinity, alignment: .center)
-        
-        
-
     }
 }
 

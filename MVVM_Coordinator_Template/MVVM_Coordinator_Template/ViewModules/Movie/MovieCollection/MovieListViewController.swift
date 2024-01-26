@@ -15,8 +15,7 @@ class MovieListViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     
-//    private let viewModel = MovieListViewModel() // 这里应该是一个protocol, 所有需要用到的包括 var 还有 function 都应该抽象出来
-    var viewModel: MovieListViewModelProtocol! //应该改成这一句
+    var viewModel: MovieListViewModelProtocol!
     
     private let input:  PassthroughSubject<MovieListViewModel.Input, Never> = .init()
     private var subscriptions = Set<AnyCancellable>()

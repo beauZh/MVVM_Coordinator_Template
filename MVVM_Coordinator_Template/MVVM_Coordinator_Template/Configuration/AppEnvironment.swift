@@ -8,22 +8,21 @@
 import Foundation
 
 final class AppEnvironment {
-    
-    private enum PlistKey: String {
-        case appName = "CFBundleDisplayName"
-        case appVersion = "CFBundleShortVersionString"
-        case appBuild = "CFBundleVersion"
-        case accessToken = "ACCESS_TOKEN"
-        case apiHostname = "API_HOSTNAME"
-        case imageHostname = "IMAGE_HOSTNAME"
-        case dev = "DEV"
-    }
-    
-    
-    // use this if value stored in it infoDictionary
-    private static func getValue(for key: PlistKey) -> String {
-        return Bundle.main.infoDictionary![key.rawValue] as! String
-    }
+    // Currently Not used
+//    private enum PlistKey: String {
+//        case appName = "CFBundleDisplayName"
+//        case appVersion = "CFBundleShortVersionString"
+//        case appBuild = "CFBundleVersion"
+//        case accessToken = "ACCESS_TOKEN"
+//        case apiHostname = "API_HOSTNAME"
+//        case imageHostname = "IMAGE_HOSTNAME"
+//        case dev = "DEV"
+//    }
+//    
+//    // use this if value stored in it infoDictionary
+//    private static func getValue(for key: PlistKey) -> String {
+//        return Bundle.main.infoDictionary![key.rawValue] as! String
+//    }
     
     static var baseURLString: String {
 //        return "https://\(getValue(for: .apiHostname))/"

@@ -8,6 +8,7 @@
 import Foundation
 
 extension DateFormatter {
+    
     /// Formats a date in UTC as specified in ISO8601, but leaving out the time zone information
     /// (meaning the resulting string _assumes_ UTC)
     static let basicISO8601DateFormatter : DateFormatter = {
@@ -51,4 +52,5 @@ extension DateFormatter {
         formatter.setLocalizedDateFormatFromTemplate("yMMMM")
         return formatter
     }()
+    
 }

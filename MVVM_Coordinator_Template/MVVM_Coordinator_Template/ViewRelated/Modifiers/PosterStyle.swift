@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PosterStyle: ViewModifier {
     
-    
     let loaded: Bool
     let size: ImageSize
     

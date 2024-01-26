@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MovieListFooterView: View {
     
-    
     @ObservedObject var viewModel: MovieListViewModel
     
     var body: some View {

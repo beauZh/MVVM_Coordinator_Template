@@ -8,6 +8,7 @@
 import Foundation
 
 extension JSONDecoder {
+    
     static var mtDecoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -22,4 +23,5 @@ extension JSONDecoder {
         })
         return decoder
     }
+    
 }
