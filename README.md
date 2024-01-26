@@ -1,5 +1,6 @@
 # MVVM_Coordinator_Template
 * This is a MVVM with Coordinator template with network layer.
+* Fetching data from TMDB API do display movie information and images
 * Using Storyboard Interface with custom SwiftUI views, ie tableview or collection cell.
 * Diffabledatasource is used for CollectionView and Tableview.
 * Using Concurency features async/await.
