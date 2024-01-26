@@ -56,7 +56,19 @@
 		8BDD157D2B6340BD003677A7 /* MoviePosterImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD15792B6340BD003677A7 /* MoviePosterImageViewModel.swift */; };
 		8BDD157E2B6340BD003677A7 /* MoviePosterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD157A2B6340BD003677A7 /* MoviePosterImage.swift */; };
 		8BDD157F2B6340BD003677A7 /* PopularityBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD157B2B6340BD003677A7 /* PopularityBadge.swift */; };
+		8BDD15872B634B4A003677A7 /* MVVM_Coordinator_TemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD15862B634B4A003677A7 /* MVVM_Coordinator_TemplateTests.swift */; };
+		8BDD158E2B634B6B003677A7 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD158D2B634B6B003677A7 /* MockNetworkService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BDD15882B634B4A003677A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD14ED2B633650003677A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BDD14F42B633650003677A7;
+			remoteInfo = MVVM_Coordinator_Template;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8BDD14F52B633650003677A7 /* MVVM_Coordinator_Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_Coordinator_Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,10 +122,20 @@
 		8BDD15792B6340BD003677A7 /* MoviePosterImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePosterImageViewModel.swift; sourceTree = "<group>"; };
 		8BDD157A2B6340BD003677A7 /* MoviePosterImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePosterImage.swift; sourceTree = "<group>"; };
 		8BDD157B2B6340BD003677A7 /* PopularityBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularityBadge.swift; sourceTree = "<group>"; };
+		8BDD15842B634B4A003677A7 /* MVVM_Coordinator_TemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVM_Coordinator_TemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BDD15862B634B4A003677A7 /* MVVM_Coordinator_TemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_Coordinator_TemplateTests.swift; sourceTree = "<group>"; };
+		8BDD158D2B634B6B003677A7 /* MockNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8BDD14F22B633650003677A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD15812B634B4A003677A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				8BDD14F72B633650003677A7 /* MVVM_Coordinator_Template */,
+				8BDD15852B634B4A003677A7 /* MVVM_Coordinator_TemplateTests */,
 				8BDD14F62B633650003677A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				8BDD14F52B633650003677A7 /* MVVM_Coordinator_Template.app */,
+				8BDD15842B634B4A003677A7 /* MVVM_Coordinator_TemplateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -364,6 +388,15 @@
 			path = MoviePosterImage;
 			sourceTree = "<group>";
 		};
+		8BDD15852B634B4A003677A7 /* MVVM_Coordinator_TemplateTests */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD15862B634B4A003677A7 /* MVVM_Coordinator_TemplateTests.swift */,
+				8BDD158D2B634B6B003677A7 /* MockNetworkService.swift */,
+			);
+			path = MVVM_Coordinator_TemplateTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -384,6 +417,24 @@
 			productReference = 8BDD14F52B633650003677A7 /* MVVM_Coordinator_Template.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8BDD15832B634B4A003677A7 /* MVVM_Coordinator_TemplateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BDD158A2B634B4A003677A7 /* Build configuration list for PBXNativeTarget "MVVM_Coordinator_TemplateTests" */;
+			buildPhases = (
+				8BDD15802B634B4A003677A7 /* Sources */,
+				8BDD15812B634B4A003677A7 /* Frameworks */,
+				8BDD15822B634B4A003677A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BDD15892B634B4A003677A7 /* PBXTargetDependency */,
+			);
+			name = MVVM_Coordinator_TemplateTests;
+			productName = MVVM_Coordinator_TemplateTests;
+			productReference = 8BDD15842B634B4A003677A7 /* MVVM_Coordinator_TemplateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -396,6 +447,10 @@
 				TargetAttributes = {
 					8BDD14F42B633650003677A7 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					8BDD15832B634B4A003677A7 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 8BDD14F42B633650003677A7;
 					};
 				};
 			};
@@ -413,6 +468,7 @@
 			projectRoot = "";
 			targets = (
 				8BDD14F42B633650003677A7 /* MVVM_Coordinator_Template */,
+				8BDD15832B634B4A003677A7 /* MVVM_Coordinator_TemplateTests */,
 			);
 		};
 /* End PBXProject section */
@@ -424,6 +480,13 @@
 			files = (
 				8BDD15082B633651003677A7 /* LaunchScreen.storyboard in Resources */,
 				8BDD15052B633651003677A7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD15822B634B4A003677A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +547,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BDD15802B634B4A003677A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BDD158E2B634B6B003677A7 /* MockNetworkService.swift in Sources */,
+				8BDD15872B634B4A003677A7 /* MVVM_Coordinator_TemplateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BDD15892B634B4A003677A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BDD14F42B633650003677A7 /* MVVM_Coordinator_Template */;
+			targetProxy = 8BDD15882B634B4A003677A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8BDD15062B633651003677A7 /* LaunchScreen.storyboard */ = {
@@ -673,6 +753,40 @@
 			};
 			name = Release;
 		};
+		8BDD158B2B634B4A003677A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.beauzhang.MVVM-Coordinator-TemplateTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM_Coordinator_Template.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MVVM_Coordinator_Template";
+			};
+			name = Debug;
+		};
+		8BDD158C2B634B4A003677A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.beauzhang.MVVM-Coordinator-TemplateTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM_Coordinator_Template.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MVVM_Coordinator_Template";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -690,6 +804,15 @@
 			buildConfigurations = (
 				8BDD150D2B633651003677A7 /* Debug */,
 				8BDD150E2B633651003677A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BDD158A2B634B4A003677A7 /* Build configuration list for PBXNativeTarget "MVVM_Coordinator_TemplateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BDD158B2B634B4A003677A7 /* Debug */,
+				8BDD158C2B634B4A003677A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
