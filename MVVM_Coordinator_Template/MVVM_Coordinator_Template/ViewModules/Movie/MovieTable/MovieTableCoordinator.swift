@@ -57,6 +57,7 @@ class MovieTableCoordinator: NavigationCoordinator {
         case .movieDetail(let movieId):
             if let vc = viewControllers.first(where:  { $0 is UIHostingController<MovieDetaiView> }) {
                 pop(to: vc)
+                return
             }
             
             let vc = prepareMovieDetailScreen(movieId: movieId)
