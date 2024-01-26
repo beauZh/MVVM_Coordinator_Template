@@ -2,7 +2,7 @@
 * This is a MVVM with Coordinator template with network layer.
 * Using Storyboard Interface with custom SwiftUI views, ie tableview or collection cell.
 * Diffabledatasource is used for CollectionView and Tableview.
-* Used Concurency features async/await.
+* Using Concurency features async/await.
 * Combine framework is used for communicate between ViewModel and ViewController/SwiftUI view
 * Third party library [Coordinator](https://github.com/radianttap/Coordinator) is used for navigation between views.
 
