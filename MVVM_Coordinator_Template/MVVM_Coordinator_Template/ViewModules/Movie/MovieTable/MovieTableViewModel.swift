@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class MovieTableViewModel: ObservableObject {
     
     enum Input {
@@ -53,38 +54,25 @@ class MovieTableViewModel: ObservableObject {
     func handleGetMovieResponse(page: Int) {
         Task {
             do {
-                DispatchQueue.main.async { [weak self] in
-                    self?.output.send(.loadingData(isLoading: true))
-                }
+                output.send(.loadingData(isLoading: true))
+                let movieResponse = try await networkService.movie.getPopular(page: page)
                 
-//                let movieResponse = try await networkService.movie.getPopular(page: page)
-                let movieResponse: MovieListResponse = try await networkService.request(endpoint: MovieListEndPoint.nowPlaying(page: page))
-                
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    
-                    
-                    self.output.send(.loadingData(isLoading: false))
-                    if page == 1 {
-                        self.movies = movieResponse.results
-                    } else {
-                        movieResponse.results.forEach { movie in
-                            if !self.movies.map({$0.id}).contains(movie.id) {
-                                self.movies.append(movie)
-                            }
+                if page == 1 {
+                    movies = movieResponse.results
+                } else {
+                    movieResponse.results.forEach { movie in
+                        if !movies.map({$0.id}).contains(movie.id) {
+                            movies.append(movie)
                         }
                     }
-                    
-                    self.currentPage = movieResponse.page
-                    self.totalPage = movieResponse.totalPages
-                    self.output.send(.getMovieListDidSucceed)
-                 
                 }
+                currentPage = movieResponse.page
+                totalPage = movieResponse.totalPages
+                output.send(.loadingData(isLoading: false))
+                output.send(.getMovieListDidSucceed)
             } catch {
-                DispatchQueue.main.async { [weak self] in
-                    self?.output.send(.loadingData(isLoading: false))
-                    self?.output.send(.handleError(error: MTError.convert(error: error)))
-                }
+                output.send(.loadingData(isLoading: false))
+                output.send(.handleError(error: MTError.convert(error: error)))
             }
         }
     }

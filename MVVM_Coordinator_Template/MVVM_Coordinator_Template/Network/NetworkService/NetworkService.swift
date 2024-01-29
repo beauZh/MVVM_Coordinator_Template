@@ -47,7 +47,10 @@ class NetworkService: Networkable {
     }
     
     func requestImage(from imageEndpoint: ImageEndPointType) async -> UIImage? {
-        if let image = cacheManager.getImage(for: imageEndpoint.path) {
+        
+        let image = await cacheManager.getImage(for: imageEndpoint.path)
+        
+        if let image {
             return image
         }
         
@@ -60,7 +63,7 @@ class NetworkService: Networkable {
             if let response = response as? HTTPURLResponse,
                response.statusCode == 200,
                let image = UIImage(data: data) {
-                cacheManager.setImage(for: imageEndpoint.path, with: image)
+                await cacheManager.setImage(for: imageEndpoint.path, with: image)
                 return image
             }
             return nil

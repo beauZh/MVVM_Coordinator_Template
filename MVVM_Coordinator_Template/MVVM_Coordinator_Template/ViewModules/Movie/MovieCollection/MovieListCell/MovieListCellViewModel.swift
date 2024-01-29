@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 class MovieListCellViewModel: ObservableObject {
     
     let networkService: Networkable?
@@ -22,10 +23,7 @@ class MovieListCellViewModel: ObservableObject {
     func getPosterImage() {
         Task {
             let image = await networkService?.image.getImage(with: movie.posterPath ?? "", imageSize: .medium)
-            
-            DispatchQueue.main.async { [weak self] in
-                self?.image = image
-            }
+            self.image = image
         }
     }
 }

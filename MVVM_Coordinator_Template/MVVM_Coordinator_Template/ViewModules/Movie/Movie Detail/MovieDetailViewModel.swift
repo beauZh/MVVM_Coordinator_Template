@@ -8,8 +8,7 @@
 import Foundation
 import Combine
 
-import CryptoKit
-
+@MainActor
 class MovieDetailViewModel: ObservableObject {
     
     @Published var movieDetail: MovieDetail?
@@ -29,22 +28,13 @@ class MovieDetailViewModel: ObservableObject {
         }
     }
     
-    
     func getMovieDetail(movieId: Int) async {
         do {
-//            let movieDetail = try await networkService.movie.getMovieDetail(movieId: movieId)
-            let movieDetail: MovieDetail = try await networkService.request(endpoint: MovieDetailEndPoint.movieDetail(movieId: movieId))
-            
-            DispatchQueue.main.async { [weak self] in
-                self?.movieDetail = movieDetail
-            }
+            let movieDetail = try await networkService.movie.getMovieDetail(movieId: movieId)
+            self.movieDetail = movieDetail
         } catch {
             //handle error
             print(error)
         }
     }
-    
-    
-    
-    
 }
