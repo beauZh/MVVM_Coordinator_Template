@@ -29,7 +29,6 @@ class MainCoordinator: Coordinator<UITabBarController> {
     
     let networkService: Networkable = NetworkService()
     
-    
     override func start() async {
         await super.start()
         await setupTabs()
@@ -58,8 +57,6 @@ class MainCoordinator: Coordinator<UITabBarController> {
 
 private extension MainCoordinator {
     func setupTabs() async {
-        
-        
         
         let movieCoordinator = MoviesCoordinator(networkService: networkService)
         await startChild(coordinator: movieCoordinator)

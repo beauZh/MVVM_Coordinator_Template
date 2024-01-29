@@ -15,21 +15,21 @@ final class MVVM_Coordinator_TemplateTests: XCTestCase {
     private var networkService: MockNetworkService!
     
     private var subscriptions = Set<AnyCancellable>()
-
-    override func setUpWithError() throws {
+    
+    override func setUp() async throws {
         networkService = MockNetworkService()
-        sut = MovieListViewModel(networkService: networkService)
-        try super.setUpWithError()
+        sut = await MovieListViewModel(networkService: networkService)
+        try await super.setUp()
     }
-
-    override func tearDownWithError() throws {
+    
+    override func tearDown() async throws {
         sut = nil
         networkService = nil
         subscriptions = Set<AnyCancellable>()
-        try super.tearDownWithError()
+        try await super.tearDown()
     }
 
-    func test_handleGetMovieResponse_success() {
+    func test_handleGetMovieResponse_success() async {
         // given
         networkService.mockMovieListResult = .success(MovieListResponse.sample())
         var loadingDataCount = 0
@@ -40,7 +40,7 @@ final class MVVM_Coordinator_TemplateTests: XCTestCase {
         let handleErrorExpectation = expectation(description: "handleError is not expected to happen")
         handleErrorExpectation.isInverted = true
         
-        sut.bindToViewController().sink { output in
+        await sut.bindToViewController().sink { output in
             
             // then
             switch output {
@@ -66,11 +66,13 @@ final class MVVM_Coordinator_TemplateTests: XCTestCase {
         }.store(in: &subscriptions)
         
         // when
-        sut.handleGetMovieResponse(page: 1)
-        waitForExpectations(timeout: 2)
+        await sut.handleGetMovieResponse(page: 1)
+        await fulfillment(of: [getMovieListDidSucceedExpectation,
+                               loadingDataExpectation,
+                               handleErrorExpectation], timeout: 2)
     }
     
-    func test_handleGetMovieResponse_failure() {
+    func test_handleGetMovieResponse_failure() async {
         // given
         networkService.mockMovieListResult = .failure(MTError.badConnection)
         var loadingDataCount = 0
@@ -82,7 +84,7 @@ final class MVVM_Coordinator_TemplateTests: XCTestCase {
         loadingDataExpectation.expectedFulfillmentCount = 2
         let handleErrorExpectation = expectation(description: "handleError")
         
-        sut.bindToViewController().sink { output in
+        await sut.bindToViewController().sink { output in
             
             // then
             switch output {
@@ -105,8 +107,10 @@ final class MVVM_Coordinator_TemplateTests: XCTestCase {
         .store(in: &subscriptions)
         
         // when
-        sut.handleGetMovieResponse(page: 1)
-        waitForExpectations(timeout: 2)
+        await sut.handleGetMovieResponse(page: 1)
+        await fulfillment(of: [getMovieListDidSucceedExpectation,
+                               loadingDataExpectation,
+                               handleErrorExpectation], timeout: 2)
     }
     
 }
